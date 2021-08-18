@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float _range = 100f;
     [SerializeField] float _damage = 30f;
     [SerializeField] private ParticleSystem _muzzleFlash;
+    [SerializeField] private GameObject _hitEffect;
 
     void Update()
     {
@@ -30,14 +31,19 @@ public class Weapon : MonoBehaviour
 
     private void ProcessRaycast()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(_fPCamera.transform.position, _fPCamera.transform.forward, out hit, _range))
+        if (Physics.Raycast(_fPCamera.transform.position, _fPCamera.transform.forward, out RaycastHit hit, _range))
         {
-            Debug.Log("I hit this thing: " + hit.transform.name);
-            // TODO: add some hit effect for visual players
+            CreateHitImpact(hit);
             var target = hit.transform.GetComponent<EnemyHealth>();
             if (target == null) return;
             target.TakeDamage(_damage);
         }
+    }
+
+    private void CreateHitImpact(RaycastHit hit)
+    {
+        GameObject imapct = Instantiate(_hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        
+        Destroy(imapct, 0.1f);
     }
 }
