@@ -12,6 +12,7 @@ namespace Weapon
         [SerializeField] private ParticleSystem _muzzleFlash;
         [SerializeField] private GameObject _hitEffect;
         [SerializeField] private Ammo _ammoSlot;
+        [SerializeField] private AmmoType _ammoType;
 
         private bool _canShoot = true;
 
@@ -22,23 +23,21 @@ namespace Weapon
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && _canShoot)
+            if (Input.GetMouseButtonDown(0) && _canShoot == true)
             {
                 StartCoroutine(Shoot());
             }
         }
 
-        private IEnumerator Shoot()
+        IEnumerator Shoot()
         {
             _canShoot = false;
-        
-            // if (_ammoSlot.GetCurrentAmmo() > 0)
-            // {
-            //     PlayMuzzleFlash();
-            //     ProcessRaycast();
-            //     _ammoSlot.ReduceCurrentAmmo();
-            // }
-
+            if (_ammoSlot.GetCurrentAmmo(_ammoType) > 0)
+            {
+                PlayMuzzleFlash();
+                ProcessRaycast();
+                _ammoSlot.ReduceCurrentAmmo(_ammoType);
+            }
             yield return new WaitForSeconds(_timeBetweenShots);
             _canShoot = true;
         }

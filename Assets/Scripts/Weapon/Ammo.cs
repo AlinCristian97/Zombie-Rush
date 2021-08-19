@@ -13,14 +13,26 @@ namespace Weapon
             public int AmmoAmount;
         }
 
-        // public int GetCurrentAmmo()
-        // {
-        //     return AmmoAmount;
-        // }
-
-        public void ReduceCurrentAmmo()
+        public int GetCurrentAmmo(AmmoType ammoType)
         {
-            // AmmoAmount--;
+            return GetAmmoSlot(ammoType).AmmoAmount;
+        }
+
+        public void ReduceCurrentAmmo(AmmoType ammoType)
+        {
+            GetAmmoSlot(ammoType).AmmoAmount--;
+        }
+
+        private AmmoSlot GetAmmoSlot(AmmoType ammoType)
+        {
+            foreach (AmmoSlot slot in _ammoSlots)
+            {
+                if (slot.AmmoType == ammoType)
+                {
+                    return slot;
+                }
+            }
+            return null;
         }
     }
 }
