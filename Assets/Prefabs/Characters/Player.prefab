@@ -182,7 +182,6 @@ GameObject:
   - component: {fileID: 11400004}
   - component: {fileID: 7410136704846237344}
   - component: {fileID: 3658719944271728986}
-  - component: {fileID: 1780798803518097257}
   - component: {fileID: 7894441077376310314}
   m_Layer: 0
   m_Name: Player
@@ -331,23 +330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameOverCanvas: {fileID: 0}
---- !u!114 &1780798803518097257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c62f5eece6dc84195c07606170b3ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fpsCamera: {fileID: 2000000}
-  _zoomedOutFOV: 60
-  _zoomedInFOV: 20
-  _zoomOutSensitivity: 2
-  _zoomInSensitivity: 0.5
 --- !u!114 &7894441077376310314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +438,10 @@ PrefabInstance:
     - target: {fileID: 2337074158997199750, guid: ebc10eaedad67e24c93b765df72f5785, type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337074158997199750, guid: ebc10eaedad67e24c93b765df72f5785, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebc10eaedad67e24c93b765df72f5785, type: 3}
@@ -603,8 +589,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2337074158997199750, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8969524986924912452, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
+      propertyPath: _fpsCamera
+      value: 
+      objectReference: {fileID: 2000000}
+    - target: {fileID: 8969524986924912452, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
+      propertyPath: _fpsController
+      value: 
+      objectReference: {fileID: 11400004}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
 --- !u!4 &1538984517173157539 stripped

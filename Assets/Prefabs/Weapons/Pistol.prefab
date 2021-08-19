@@ -262,7 +262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2337074158996965286
 Transform:
   m_ObjectHideFlags: 0
@@ -346,7 +346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fPCamera: {fileID: 0}
   _range: 100
-  _damage: 30
+  _damage: 15
+  _timeBetweenShots: 0.5
   _muzzleFlash: {fileID: 4029155489561876180}
   _hitEffect: {fileID: 5790106778247122895, guid: da176d4abe9d61f419fff69f2c0b19d2, type: 3}
   _ammoSlot: {fileID: 0}

@@ -347,6 +347,7 @@ MonoBehaviour:
   _fPCamera: {fileID: 0}
   _range: 100
   _damage: 30
+  _timeBetweenShots: 1
   _muzzleFlash: {fileID: 4029155489561876180}
   _hitEffect: {fileID: 5790106778247122895, guid: da176d4abe9d61f419fff69f2c0b19d2, type: 3}
   _ammoSlot: {fileID: 0}
