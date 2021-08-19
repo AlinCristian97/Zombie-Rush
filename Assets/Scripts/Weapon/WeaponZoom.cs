@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,18 +21,33 @@ public class WeaponZoom : MonoBehaviour
         {
             if (_zoomedInToggle == false)
             {
-                _zoomedInToggle = true;
-                _fpsCamera.fieldOfView = _zoomedInFOV;
-                _fpsController.mouseLook.XSensitivity = _zoomInSensitivity;
-                _fpsController.mouseLook.YSensitivity = _zoomInSensitivity;
+                ZoomIn();
             }
             else
             {
-                _zoomedInToggle = false;
-                _fpsCamera.fieldOfView = _zoomedOutFOV;
-                _fpsController.mouseLook.XSensitivity = _zoomOutSensitivity;
-                _fpsController.mouseLook.YSensitivity = _zoomOutSensitivity;
+                ZoomOut();
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        ZoomOut();
+    }
+
+    private void ZoomOut()
+    {
+        _zoomedInToggle = false;
+        _fpsCamera.fieldOfView = _zoomedOutFOV;
+        _fpsController.mouseLook.XSensitivity = _zoomOutSensitivity;
+        _fpsController.mouseLook.YSensitivity = _zoomOutSensitivity;
+    }
+
+    private void ZoomIn()
+    {
+        _zoomedInToggle = true;
+        _fpsCamera.fieldOfView = _zoomedInFOV;
+        _fpsController.mouseLook.XSensitivity = _zoomInSensitivity;
+        _fpsController.mouseLook.YSensitivity = _zoomInSensitivity;
     }
 }
