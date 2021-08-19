@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 7410136704846237344}
   - component: {fileID: 3658719944271728986}
   - component: {fileID: 1780798803518097257}
+  - component: {fileID: 7894441077376310314}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -345,6 +346,21 @@ MonoBehaviour:
   _fpsCamera: {fileID: 2000000}
   _zoomedOutFOV: 60
   _zoomedInFOV: 20
+  _zoomOutSensitivity: 2
+  _zoomInSensitivity: 0.5
+--- !u!114 &7894441077376310314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a65eacb7f595347b338a26ec72f9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ammoAmount: 10
 --- !u!114 &1049379592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +378,7 @@ MonoBehaviour:
   _damage: 30
   _muzzleFlash: {fileID: 206894282727641041}
   _hitEffect: {fileID: 5790106778247122895, guid: da176d4abe9d61f419fff69f2c0b19d2, type: 3}
+  _ammoSlot: {fileID: 7894441077376310314}
 --- !u!1 &3123059350137320743
 GameObject:
   m_ObjectHideFlags: 0
