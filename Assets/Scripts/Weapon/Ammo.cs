@@ -22,6 +22,11 @@ namespace Weapon
         {
             GetAmmoSlot(ammoType).AmmoAmount--;
         }
+        
+        public void IncreaseCurrentAmmo(AmmoType ammoType, int ammoAmount)
+        {
+            GetAmmoSlot(ammoType).AmmoAmount += ammoAmount;
+        }
 
         private AmmoSlot GetAmmoSlot(AmmoType ammoType)
         {

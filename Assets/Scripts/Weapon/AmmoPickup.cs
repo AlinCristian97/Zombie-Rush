@@ -4,11 +4,14 @@ namespace Weapon
 {
     public class AmmoPickup : MonoBehaviour
     {
+        [SerializeField] private int _ammoAmount = 5;
+        [SerializeField] private AmmoType _ammoType;
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Player did what players do");
+                FindObjectOfType<Ammo>().IncreaseCurrentAmmo(_ammoType, _ammoAmount);
                 Destroy(gameObject);
             }
         }
