@@ -28,6 +28,7 @@ public class EnemyAI : MonoBehaviour
         {
             enabled = false;
             _navMeshAgent.enabled = false;
+            _isProvoked = false;
         }
         
         _distanceToTarget = Vector3.Distance(_target.position, transform.position);
