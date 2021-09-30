@@ -5,27 +5,20 @@ namespace Weapon
     public class Ammo : MonoBehaviour
     {
         [SerializeField] private AmmoSlot[] _ammoSlots;
-        
-        [System.Serializable]
-        private class AmmoSlot
-        {
-            public AmmoType AmmoType;
-            public int AmmoAmount;
-        }
 
         public int GetCurrentAmmo(AmmoType ammoType)
         {
-            return GetAmmoSlot(ammoType).AmmoAmount;
+            return GetAmmoSlot(ammoType).CurrentAmmoAmount;
         }
 
-        public void ReduceCurrentAmmo(AmmoType ammoType)
+        public void ReduceCurrentAmmoAmount(AmmoType ammoType, int amountToReduce)
         {
-            GetAmmoSlot(ammoType).AmmoAmount--;
+            GetAmmoSlot(ammoType).DecreaseAmmoAmount(amountToReduce);
         }
         
-        public void IncreaseCurrentAmmo(AmmoType ammoType, int ammoAmount)
+        public void IncreaseCurrentAmmo(AmmoType ammoType, int amountToIncrease)
         {
-            GetAmmoSlot(ammoType).AmmoAmount += ammoAmount;
+            GetAmmoSlot(ammoType).IncreaseAmmoAmount(amountToIncrease);
         }
 
         private AmmoSlot GetAmmoSlot(AmmoType ammoType)

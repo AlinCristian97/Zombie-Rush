@@ -14,6 +14,7 @@ namespace Weapon
         [SerializeField] private GameObject _hitEffect;
         [SerializeField] private Ammo _ammoSlot;
         [SerializeField] private AmmoType _ammoType;
+        [SerializeField] private int _numberOfBulletsPerShot = 1;
 
         private bool _canShoot = true;
 
@@ -37,7 +38,7 @@ namespace Weapon
             {
                 PlayMuzzleFlash();
                 ProcessRaycast();
-                _ammoSlot.ReduceCurrentAmmo(_ammoType);
+                _ammoSlot.ReduceCurrentAmmoAmount(_ammoType, _numberOfBulletsPerShot);
             }
             yield return new WaitForSeconds(_timeBetweenShots);
             _canShoot = true;
