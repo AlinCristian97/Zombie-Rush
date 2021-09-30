@@ -1,29 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] float _hitPoints = 100f;
-
-    private bool _isDead;
-
-    public bool IsDead() => _isDead;
-    
-    public void TakeDamage(float damage)
+    //TODO: Merge EnemyHealth & PlayerHealth into one single Health component
+    public class EnemyHealth : MonoBehaviour
     {
-        BroadcastMessage("OnDamageTaken");
-        _hitPoints -= damage;
-        if (_hitPoints <= 0)
+        [SerializeField] float _hitPoints = 100f;
+
+        private bool _isDead;
+
+        public bool IsDead() => _isDead;
+    
+        public void TakeDamage(float damage)
         {
-            Die();
+            BroadcastMessage("OnDamageTaken");
+            _hitPoints -= damage;
+            if (_hitPoints <= 0)
+            {
+                Die();
+            }
         }
-    }
     
-    private void Die()
-    {
-        if (_isDead) return;
-        _isDead = true;
-        GetComponent<Animator>().SetTrigger("Die");
+        private void Die()
+        {
+            if (_isDead) return;
+            _isDead = true;
+            GetComponent<Animator>().SetTrigger("Die");
+        }
     }
 }

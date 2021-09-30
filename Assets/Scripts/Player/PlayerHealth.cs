@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+namespace Player
 {
-    [SerializeField] float hitPoints = 100f;
-
-    public void TakeDamage(float damage)
+    //TODO: Merge EnemyHealth & PlayerHealth into one single Health component
+    public class PlayerHealth : MonoBehaviour
     {
-        hitPoints -= damage;
-        if (hitPoints <= 0)
+        [SerializeField] float hitPoints = 100f;
+
+        public void TakeDamage(float damage)
         {
-            GetComponent<DeathHandler>().HandleDeath();
+            hitPoints -= damage;
+            if (hitPoints <= 0)
+            {
+                GetComponent<DeathHandler>().HandleDeath();
+            }
         }
     }
 }
