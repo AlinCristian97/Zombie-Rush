@@ -1,20 +1,19 @@
+using System;
 using System.Collections;
 using Enemy;
 using UnityEngine;
+using Weapon.Projectile;
 
 namespace Weapon
 {
     public class Weapon : MonoBehaviour
     {
-        [SerializeField] private Camera _fPCamera;
+        [SerializeField] private Camera _camera;
         [SerializeField] private float _range = 100f;
         [SerializeField] private float _damage = 30f;
         [SerializeField] private float _timeBetweenShots = 0.5f;
         [SerializeField] private ParticleSystem _muzzleFlash;
         [SerializeField] private GameObject _hitEffect;
-        [SerializeField] private Ammo _ammoSlot;
-        [SerializeField] private AmmoType _ammoType;
-        [SerializeField] private int _numberOfBulletsPerShot = 1;
 
         private bool _canShoot = true;
 
@@ -25,7 +24,7 @@ namespace Weapon
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && _canShoot == true)
+            if (Input.GetMouseButtonDown(0) && _canShoot)
             {
                 StartCoroutine(Shoot());
             }
@@ -33,15 +32,17 @@ namespace Weapon
 
         IEnumerator Shoot()
         {
-            _canShoot = false;
-            if (_ammoSlot.GetCurrentAmmo(_ammoType) > 0)
+            var projectileContainer = GetComponentInChildren<ProjectileContainer>();
+
+            if (projectileContainer.HasProjectiles)
             {
+                _canShoot = false;
                 PlayMuzzleFlash();
                 ProcessRaycast();
-                _ammoSlot.ReduceCurrentAmmoAmount(_ammoType, _numberOfBulletsPerShot);
+                projectileContainer.DecreaseProjectilesAmount();
+                yield return new WaitForSeconds(_timeBetweenShots);
+                _canShoot = true;
             }
-            yield return new WaitForSeconds(_timeBetweenShots);
-            _canShoot = true;
         }
 
         private void PlayMuzzleFlash()
@@ -51,7 +52,7 @@ namespace Weapon
 
         private void ProcessRaycast()
         {
-            if (Physics.Raycast(_fPCamera.transform.position, _fPCamera.transform.forward, out RaycastHit hit, _range))
+            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, _range))
             {
                 CreateHitImpact(hit);
                 var target = hit.transform.GetComponent<Health>();

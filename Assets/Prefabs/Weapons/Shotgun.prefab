@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 2337074159000356742}
   - component: {fileID: 2337074158999389510}
   - component: {fileID: 1049379592}
+  - component: {fileID: 31504497129435900}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -344,13 +345,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b3c878b5dafeb46976ef86b680f03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fPCamera: {fileID: 0}
+  _camera: {fileID: 0}
   _range: 100
   _damage: 30
   _timeBetweenShots: 1
   _muzzleFlash: {fileID: 4029155489561876180}
   _hitEffect: {fileID: 5790106778247122895, guid: da176d4abe9d61f419fff69f2c0b19d2, type: 3}
-  _ammoSlot: {fileID: 0}
+--- !u!114 &31504497129435900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337074158997199750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9cdb84a8f24549b1387565b1affb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxProjectilesAmount: 10
 --- !u!1 &2337074158997199752
 GameObject:
   m_ObjectHideFlags: 0
