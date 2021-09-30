@@ -2,20 +2,17 @@ using UnityEngine;
 
 namespace Enemy
 {
-    //TODO: Merge EnemyHealth & PlayerHealth into one single Health component
-    public class EnemyHealth : MonoBehaviour
+    public class Health : MonoBehaviour
     {
-        [SerializeField] float _hitPoints = 100f;
-
+        [SerializeField] private float _health = 100f;
         private bool _isDead;
 
         public bool IsDead() => _isDead;
     
         public void TakeDamage(float damage)
         {
-            BroadcastMessage("OnDamageTaken");
-            _hitPoints -= damage;
-            if (_hitPoints <= 0)
+            _health -= damage;
+            if (_health <= 0)
             {
                 Die();
             }
@@ -24,8 +21,9 @@ namespace Enemy
         private void Die()
         {
             if (_isDead) return;
+            
             _isDead = true;
-            GetComponent<Animator>().SetTrigger("Die");
+            Debug.Log(gameObject.name + " has died!");
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Weapon
             if (Physics.Raycast(_fPCamera.transform.position, _fPCamera.transform.forward, out RaycastHit hit, _range))
             {
                 CreateHitImpact(hit);
-                var target = hit.transform.GetComponent<EnemyHealth>();
+                var target = hit.transform.GetComponent<Health>();
                 if (target == null) return;
                 target.TakeDamage(_damage);
             }

@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float _turnSpeed = 5f;
 
     private bool _isProvoked;
-    private EnemyHealth _health;
+    private Health _health;
 
     private NavMeshAgent _navMeshAgent;
     private float _distanceToTarget = Mathf.Infinity;
@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        _health = GetComponent<EnemyHealth>();
+        _health = GetComponent<Health>();
     }
 
     private void Update()
