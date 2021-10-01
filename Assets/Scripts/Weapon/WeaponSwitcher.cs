@@ -60,6 +60,10 @@ namespace Weapon
             {
                 _currentWeapon = 1;
             }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                _currentWeapon = 2;
+            }
         }
 
         private void SetWeaponActive()

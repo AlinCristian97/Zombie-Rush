@@ -2,70 +2,37 @@ using System;
 using System.Collections;
 using Enemy;
 using UnityEngine;
-using Weapon.Projectile;
 
 namespace Weapon
 {
-    public class Weapon : MonoBehaviour
+    public abstract class Weapon : MonoBehaviour
     {
-        [SerializeField] private Camera _camera;
-        [SerializeField] private float _range = 100f;
-        [SerializeField] private float _damage = 30f;
-        [SerializeField] private float _timeBetweenShots = 0.5f;
-        [SerializeField] private ParticleSystem _muzzleFlash;
-        [SerializeField] private GameObject _hitEffect;
+        [SerializeField] protected float Damage = 30f;
+        [SerializeField] protected float AttackCooldown = 0.5f;
+        private float _nextAttackTime;
+        private const float WEAPON_SWITCH_ATTACK_COOLDOWN = 0.5f;
 
-        private bool _canShoot = true;
+        private void UpdateNextAttackTime()
+        {
+            _nextAttackTime = Time.time + AttackCooldown;
+        }
+
+        private bool AttackCooldownPassed() => Time.time > _nextAttackTime;
 
         private void OnEnable()
         {
-            _canShoot = true;
+            _nextAttackTime = Time.time + WEAPON_SWITCH_ATTACK_COOLDOWN;
         }
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && _canShoot)
+            if (Input.GetMouseButtonDown(0) && AttackCooldownPassed())
             {
-                StartCoroutine(Shoot());
+                Attack();
+                UpdateNextAttackTime();
             }
         }
 
-        IEnumerator Shoot()
-        {
-            var projectileContainer = GetComponentInChildren<ProjectileContainer>();
-
-            if (projectileContainer.HasProjectiles)
-            {
-                _canShoot = false;
-                PlayMuzzleFlash();
-                ProcessRaycast();
-                projectileContainer.DecreaseProjectilesAmount();
-                yield return new WaitForSeconds(_timeBetweenShots);
-                _canShoot = true;
-            }
-        }
-
-        private void PlayMuzzleFlash()
-        {
-            _muzzleFlash.Play();
-        }
-
-        private void ProcessRaycast()
-        {
-            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, _range))
-            {
-                CreateHitImpact(hit);
-                var target = hit.transform.GetComponent<Health>();
-                if (target == null) return;
-                target.TakeDamage(_damage);
-            }
-        }
-
-        private void CreateHitImpact(RaycastHit hit)
-        {
-            GameObject imapct = Instantiate(_hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        
-            Destroy(imapct, 0.1f);
-        }
+        protected abstract void Attack();
     }
 }

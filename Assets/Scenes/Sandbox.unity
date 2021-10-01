@@ -7503,11 +7503,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b190c9bd998024409eff12430016fff, type: 3}
---- !u!20 &1591280333 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
-  m_PrefabInstance: {fileID: 2025731777}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1627085494
 GameObject:
   m_ObjectHideFlags: 0
@@ -9457,14 +9452,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 872131134431102561, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 1591280333}
-    - target: {fileID: 1323894438931021858, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 1591280333}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
 --- !u!1001 &2030591005
@@ -10341,6 +10328,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994657687}
     m_Modifications:
+    - target: {fileID: 6464640470433097622, guid: ffb646763cb506642aabef1174b00681, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79dea3cfd1106324b825fe6e663ee08b, type: 2}
     - target: {fileID: 6464640470434866550, guid: ffb646763cb506642aabef1174b00681, type: 3}
       propertyPath: m_RootOrder
       value: 0
