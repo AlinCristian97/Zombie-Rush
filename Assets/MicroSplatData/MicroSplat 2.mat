@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MicroSplat
-  m_Shader: {fileID: 4800000, guid: a5909aaffdd3d294cb2457b313601dfc, type: 3}
+  m_Name: MicroSplat 2
+  m_Shader: {fileID: 4800000, guid: b0bafc891c3e35f47ad4e373f982960a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse:
-        m_Texture: {fileID: 18700000, guid: 53c0be99f8f96cf47b850d6a6353838a, type: 2}
+        m_Texture: {fileID: 18700000, guid: 7cecba323d4283d41a4bbf91bc1ccde1, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalSAO:
-        m_Texture: {fileID: 18700000, guid: f8eb06ff7f0a4af40829e4aaaca75764, type: 2}
+        m_Texture: {fileID: 18700000, guid: 8191d5d15de33594cb5c6a5082177c45, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PerPixelNormal:
