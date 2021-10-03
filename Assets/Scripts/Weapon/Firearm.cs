@@ -19,10 +19,10 @@ namespace Weapon
 
             if (projectileContainer.HasProjectiles)
             {
+                Animator.SetTrigger("Attack");
                 PlayMuzzleFlash();
                 ProcessRaycast();
                 projectileContainer.DecreaseProjectilesAmount();
-                
             }
         }
         

@@ -5109,6 +5109,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 306811423097367784, guid: 8b190c9bd998024409eff12430016fff, type: 3}
   m_PrefabInstance: {fileID: 1157082028}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1158774910 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5400000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+  m_PrefabInstance: {fileID: 2025731777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1162671017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5579,7 +5584,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1330593578867330517, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
   m_PrefabInstance: {fileID: 2025731777}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1199110593
+--- !u!95 &1199110596
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -9299,6 +9304,10 @@ PrefabInstance:
       propertyPath: Damage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 9084390496276579499, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: _playerRigidbody
+      value: 
+      objectReference: {fileID: 1158774910}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
 --- !u!1001 &2030591005
