@@ -16,7 +16,6 @@ namespace Player
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Debug.Log("Player pressed R. Reloading...");
                 OnReloadButtonPressed?.Invoke();
             }
         }

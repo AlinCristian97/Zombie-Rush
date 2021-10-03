@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Enemy;
+using Player;
 using UnityEngine;
 using Weapon.Projectile;
 
@@ -24,6 +25,22 @@ namespace Weapon
                 ProcessRaycast();
                 projectileContainer.DecreaseProjectilesAmount();
             }
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            PlayerEvents.OnReloadButtonPressed += TriggerReloadAnimation;
+        }
+        
+        private void OnDisable()
+        {
+            PlayerEvents.OnReloadButtonPressed -= TriggerReloadAnimation;
+        }
+
+        private void TriggerReloadAnimation()
+        {
+            Animator.SetTrigger("Reload");
         }
         
         private void ProcessRaycast()

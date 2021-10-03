@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Enemy;
+using Player;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -23,12 +24,12 @@ namespace Weapon
 
         private bool AttackCooldownPassed() => Time.time > _nextAttackTime;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             Animator = GetComponent<Animator>();
             _nextAttackTime = Time.time + WEAPON_SWITCH_ATTACK_COOLDOWN;
         }
-
+        
         private void Update()
         {
             if (Input.GetMouseButtonDown(0) && AttackCooldownPassed())

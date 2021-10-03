@@ -10,17 +10,7 @@ namespace Weapon.Projectile
         [SerializeField] protected int MaxProjectilesAmount = 30;
         protected int CurrentProjectilesAmount;
         public bool HasProjectiles => CurrentProjectilesAmount > 0;
-
-        private void OnEnable()
-        {
-            PlayerEvents.OnReloadButtonPressed += ReloadContainer;
-        }
-
-        private void OnDisable()
-        {
-            PlayerEvents.OnReloadButtonPressed -= ReloadContainer;
-        }
-
+        
         private void Awake()
         {
             InitializeContainer();
@@ -41,6 +31,11 @@ namespace Weapon.Projectile
             CurrentProjectilesAmount = MaxProjectilesAmount;
         }
 
+        #region Unity Animation Triggers
+
+        
+
+        #endregion
         protected abstract void ReloadContainer();
     }
 }
