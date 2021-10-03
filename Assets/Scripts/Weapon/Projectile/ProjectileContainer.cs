@@ -10,7 +10,10 @@ namespace Weapon.Projectile
         [SerializeField] protected int MaxProjectilesAmount = 30;
         protected int CurrentProjectilesAmount;
         public bool HasProjectiles => CurrentProjectilesAmount > 0;
-        
+
+        public bool CanReload => CurrentProjectilesAmount < MaxProjectilesAmount &&
+                                 Inventory.Instance.CurrentBulletsAmount > 0;
+
         private void Awake()
         {
             InitializeContainer();

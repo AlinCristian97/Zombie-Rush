@@ -11,7 +11,7 @@ namespace Weapon.Projectile
             {
                 Debug.Log("Weapon ammo is full!");
             }
-            else if (CurrentProjectilesAmount < MaxProjectilesAmount && Inventory.Instance.CurrentShellsAmount > 0)
+            else if (CanReload)
             {
                 //play reload animation & SFX
                 int amountToAdd = MaxProjectilesAmount - CurrentProjectilesAmount;

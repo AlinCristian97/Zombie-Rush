@@ -40,7 +40,13 @@ namespace Weapon
 
         private void TriggerReloadAnimation()
         {
-            Animator.SetTrigger("Reload");
+            //TODO: Improve code
+            var projectileContainer = GetComponent<ProjectileContainer>();
+            
+            if (projectileContainer.CanReload)
+            {
+                Animator.SetTrigger("Reload");
+            }
         }
         
         private void ProcessRaycast()
