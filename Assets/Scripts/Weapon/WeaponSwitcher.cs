@@ -26,7 +26,7 @@ namespace Weapon
 
         private void ProcessScrollWheelInput()
         {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
                 if (_currentWeapon >= transform.childCount - 1)
                 {
@@ -37,7 +37,7 @@ namespace Weapon
                     _currentWeapon++;
                 }
             }
-            else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            else if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
                 if (_currentWeapon <= 0)
                 {

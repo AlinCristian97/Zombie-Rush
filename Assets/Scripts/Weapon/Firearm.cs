@@ -43,6 +43,7 @@ namespace Weapon
             //TODO: Improve code
             var projectileContainer = GetComponent<ProjectileContainer>();
             
+            //TODO: fix bug! - by the time it reloads, spamming R sets the trigger again, so it plays the reload anim twice
             if (projectileContainer.CanReload)
             {
                 Animator.SetTrigger("Reload");
