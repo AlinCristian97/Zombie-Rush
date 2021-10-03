@@ -1,0 +1,300 @@
+[33mcommit eccad7293ece89b34c2443d50122af01bb67481c[m[33m ([m[1;36mHEAD -> [m[1;32mimplementation-terrain[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Sat Oct 2 06:48:28 2021 +0300
+
+    Scripted Knife attack logic
+
+[33mcommit 16210fd63763a10865ae52dcf6f9a703483aa48b[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Fri Oct 1 03:01:32 2021 +0300
+
+    Added Knife model
+
+[33mcommit cb55bf6b0d8caa812da97def67ab92683350b666[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Fri Oct 1 02:40:00 2021 +0300
+
+    Refactored Weapon system
+
+[33mcommit e4f4dfc45454e6b08b0c94eae6453132627464b7[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Fri Oct 1 01:01:28 2021 +0300
+
+    Refactored Ammo system
+
+[33mcommit e10867fd699741dbecbfe7b2e07c8efdf61763d8[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Sep 30 07:25:45 2021 +0300
+
+    Refactored 'AmmoSlot' and moved it to its own file
+
+[33mcommit e2b0832380f6d40e4436ea47b94684cee24f7760[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Sep 30 06:48:05 2021 +0300
+
+    Replaced 'PlayerHealth' & 'EnemyHealth' with 'Health'
+
+[33mcommit daf9678a38e7b213ca9c7e531218bcc63dae76d7[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Sep 30 06:36:38 2021 +0300
+
+    Created Tree prefabs & Tweaked hierarchy
+
+[33mcommit 731080120b0e7cd8ff53d00ef4554a1eef3e90dd[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Sep 30 02:36:10 2021 +0300
+
+    Restrucuted Hierarchy & Tweaked environment
+
+[33mcommit 5ddc23a7f5997cb3cc0f2209e5c0eb4277b35e1a[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Sun Aug 22 23:32:50 2021 +0300
+
+    fix: Added Attack Animation Event to the new Zombie Attack anim
+
+[33mcommit 8499dfde2af8cecafd0e025ca4577d44fa35ec0b[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Sat Aug 21 02:48:23 2021 +0300
+
+    Finished implementing 'Die' Zombie anim
+
+[33mcommit ff24c084b26c23b291d52fa969924db90b6344b0[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Fri Aug 20 23:42:49 2021 +0300
+
+    Started implementing 'Die' Zombie animation
+
+[33mcommit ba8f0f24ff8ba61dbe41e455656e2cc3cc5e1809[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Fri Aug 20 23:41:03 2021 +0300
+
+    minor tweaks
+
+[33mcommit 46c243e45c310d85f837bd00a14b545d7be75050[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Fri Aug 20 23:37:11 2021 +0300
+
+    Replaced Placeholder animations with Zombie animation
+
+[33mcommit b1b893b9f8d274952416f7af38811623ab2eeb12[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Fri Aug 20 23:17:33 2021 +0300
+
+    Replaced Primitive Model with Zombie Model in Enemy prefab
+
+[33mcommit 1ae6d6373203345b4dbab9096364731f721c4b63[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 21:04:18 2021 +0300
+
+    Imported Zombie Assets
+
+[33mcommit d15dbf9cccf414c4191d7f53c3c7436397f82f00[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 21:00:50 2021 +0300
+
+    Added Ammo Pickups for all Ammo types
+
+[33mcommit 0c4e745afab4c452478e0830c045e9bd2fbb9eef[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 20:40:07 2021 +0300
+
+    Started Ammo Pickup implementation
+
+[33mcommit 8d7d3c55aaf823e60b58343842efaaec4c99ed2b[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 20:34:11 2021 +0300
+
+    bugfix: Zoom back out when switching weapon while Zoomed In
+
+[33mcommit cebec8f5d62eedece5bd6b3094a031063ea880a5[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 20:31:15 2021 +0300
+
+    Implemented Different Ammo usage for each Weapon
+
+[33mcommit 0f69d3159008a4d09cd2e8e16b7cdfdd075aecea[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 18:36:16 2021 +0300
+
+    Added AmmoType enum and AmmoSlot private class
+
+[33mcommit a56b0b459f228dcebf36197b70860aa2fafa31f7[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 16:14:26 2021 +0300
+
+    Weapons Switch based on Player Input
+
+[33mcommit 6975c2799a92c82fb6e0d842bd3b16b580ac3002[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 16:03:46 2021 +0300
+
+    Added functionality for setting Active specific Weapon
+
+[33mcommit f18b523c1aab4a5b1792b82e610f38037a34eec4[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 15:56:37 2021 +0300
+
+    Adjusted each weapon to have different stats
+
+[33mcommit 9a302a3f2141ea5d52cb299a730e07c428facf69[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 15:21:57 2021 +0300
+
+    Added 2 more Weapons
+
+[33mcommit 8485141272cd00d397ef334e9cc3cdf97631a0f1[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 14:44:32 2021 +0300
+
+    Added Basic Ammo Functionality
+
+[33mcommit 4571d54eb29161a9377bf4b60bdb99544e81e53c[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 14:39:19 2021 +0300
+
+    Adjusted Mouse Sensitivity based on the Weapon Zoom level
+
+[33mcommit d4f0611feddca6a5f4b4a19af4e3637f32c9688f[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 14:26:14 2021 +0300
+
+    Created Weapon Zoom effect
+
+[33mcommit 4ea5955e1c59c6e50425fca659eaf152feb067f2[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 14:13:47 2021 +0300
+
+    Set up the Early Game Loop
+
+[33mcommit 70a3c364358fbb168e1a4645073af392daf9f5cd[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 02:23:18 2021 +0300
+
+    Enemy Chase on Player Attack
+
+[33mcommit a91beda6b9736159b519eb4778f196547f5fe95c[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 02:18:16 2021 +0300
+
+    Handled Player Death
+
+[33mcommit 60132168add633a662a982c285401726e53042db[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 02:13:24 2021 +0300
+
+    Created 'Game Over' UI
+
+[33mcommit f6faff44697c0fd9075818fe1cffa7be8eb0ee4b[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 01:53:33 2021 +0300
+
+    Enemy rotates to face the target
+
+[33mcommit 1e8646065aa4c0ddf9e426949474f0fac239bbe4[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 01:47:23 2021 +0300
+
+    Added Player Health and Enemy Damage
+
+[33mcommit 080a8ded2aa5ad0b1d5100845544b6da6cdf8e1b[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 01:38:18 2021 +0300
+
+    Trigger Enemy Attack via Animation Events
+
+[33mcommit ef10600dab4ee82745125740526048d445afa5b3[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 01:27:11 2021 +0300
+
+    Trigget Enemy Animations via code
+
+[33mcommit 335f3702abfb8f9b542cd7c6d5fed7ac088cbeff[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 01:18:54 2021 +0300
+
+    Set up Animator Transition Conditions
+
+[33mcommit faa228af1296db6442bb716acb535dbb1215ae69[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 01:14:24 2021 +0300
+
+    Created Enemy Animator Controller
+
+[33mcommit ee4e56a819cdf957eba1e5dfc985d0e474fe15f5[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Thu Aug 19 01:05:14 2021 +0300
+
+    Created Shooting Hit Effect
+
+[33mcommit 581ab8cd0fbf998cbbe44390dbb2dc4ff8c95007[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 21:16:16 2021 +0300
+
+    Implemented a Muzzle Flash on Weapon Fire
+
+[33mcommit 6c117784fd30e7f0a490eafe26409113753e5809[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 21:06:12 2021 +0300
+
+    Added Enemy Health and Weapon Damage
+
+[33mcommit e46999c14099cd2ae1cd9225f9e6089609605076[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 21:02:03 2021 +0300
+
+    Implemented Player Shooting mechanism
+
+[33mcommit 5e921dee0d29fc9a630fac087355155683595127[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 20:57:27 2021 +0300
+
+    Imported Weapon Assets
+    
+    Added Weapon to the Player
+
+[33mcommit 8fc8756e64920aea70ed0e64e1a488ba580e2349[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 20:46:45 2021 +0300
+
+    EnemyAI Attacks Play if provoked
+
+[33mcommit e7d58e6b0e612eeae40ebde9870d2d22ec97f98a[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 20:38:54 2021 +0300
+
+    Implemented EnemyAI Chase Range
+
+[33mcommit aeed13e4a6c91915cb7ab62122916ede931587d7[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 20:32:39 2021 +0300
+
+    bugfix: Camera jittering
+
+[33mcommit 29fc257d271dd1c0db7144a0d900ce251d8f9c6e[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 04:35:02 2021 +0300
+
+    Added Enemy AI that chases the Player
+
+[33mcommit 6e51fbde3c2817ff4a50d3ac9a4d36ff538c8baf[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Wed Aug 18 04:20:32 2021 +0300
+
+    Created Prototyping Sandbox
+
+[33mcommit 40abeeeafa61d06d89c9ec10d18f77012138b396[m
+Author: Alin Apostol <alin.cristian977@gmail.com>
+Date:   Tue Aug 17 23:39:06 2021 +0300
+
+    Imported Unity Standard Assets
+    
+    Added a First Person Controller in the scene
+
+[33mcommit a96c8a657d33d727b559036f5208d2e26efaf7f1[m
+Author: Alin Cristian <alin.cristian977@gmail.com>
+Date:   Mon Jul 19 23:12:07 2021 +0200
+
+    Initial Commit
+    
+    Created Unity Project
+    Added '.gitignore' file
