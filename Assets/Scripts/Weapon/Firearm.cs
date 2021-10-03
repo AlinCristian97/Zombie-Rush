@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Enemy;
+using Player;
 using UnityEngine;
 using Weapon.Projectile;
 
@@ -19,10 +20,33 @@ namespace Weapon
 
             if (projectileContainer.HasProjectiles)
             {
+                Animator.SetTrigger("Attack");
                 PlayMuzzleFlash();
                 ProcessRaycast();
                 projectileContainer.DecreaseProjectilesAmount();
-                
+            }
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            PlayerEvents.OnReloadButtonPressed += TriggerReloadAnimation;
+        }
+        
+        private void OnDisable()
+        {
+            PlayerEvents.OnReloadButtonPressed -= TriggerReloadAnimation;
+        }
+
+        private void TriggerReloadAnimation()
+        {
+            //TODO: Improve code
+            var projectileContainer = GetComponent<ProjectileContainer>();
+            
+            //TODO: fix bug! - by the time it reloads, spamming R sets the trigger again, so it plays the reload anim twice
+            if (projectileContainer.CanReload)
+            {
+                Animator.SetTrigger("Reload");
             }
         }
         

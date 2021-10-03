@@ -11,15 +11,8 @@ namespace Weapon.Projectile
         protected int CurrentProjectilesAmount;
         public bool HasProjectiles => CurrentProjectilesAmount > 0;
 
-        private void OnEnable()
-        {
-            PlayerEvents.OnReloadButtonPressed += ReloadContainer;
-        }
-
-        private void OnDisable()
-        {
-            PlayerEvents.OnReloadButtonPressed -= ReloadContainer;
-        }
+        public bool CanReload => CurrentProjectilesAmount < MaxProjectilesAmount &&
+                                 Inventory.Instance.CurrentBulletsAmount > 0;
 
         private void Awake()
         {
@@ -41,6 +34,11 @@ namespace Weapon.Projectile
             CurrentProjectilesAmount = MaxProjectilesAmount;
         }
 
+        #region Unity Animation Triggers
+
+        
+
+        #endregion
         protected abstract void ReloadContainer();
     }
 }
