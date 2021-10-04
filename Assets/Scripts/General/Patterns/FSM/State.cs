@@ -1,4 +1,4 @@
-﻿namespace General.Patterns.State
+﻿namespace General.Patterns.FSM
 {
     public abstract class State
     {

@@ -1,16 +1,16 @@
-namespace General.Patterns.State.FSM
+namespace General.Patterns.FSM
 {
     public class StateMachine
     {
-        public State CurrentState { get; private set; }
+        public Patterns.FSM.State CurrentState { get; private set; }
 
-        public void Initialize(State startingState)
+        public void Initialize(Patterns.FSM.State startingState)
         {
             CurrentState = startingState;
             CurrentState.Enter();
         }
 
-        public void ChangeState(State newState)
+        public void ChangeState(Patterns.FSM.State newState)
         {
             CurrentState.Exit();
             CurrentState = newState;

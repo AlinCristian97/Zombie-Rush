@@ -1,91 +1,116 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Enemy;
+using General.Patterns.FSM;
+using General.Patterns.FSM.EnemyFSM;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private Transform _target;
-    [SerializeField] private float _chaseRange = 5f;
-    [SerializeField] float _turnSpeed = 5f;
-
-    private bool _isProvoked;
-    private Health _health;
-
-    private NavMeshAgent _navMeshAgent;
-    private float _distanceToTarget = Mathf.Infinity;
-
-    private void Start()
+    public class EnemyAI : MonoBehaviour
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _health = GetComponent<Health>();
-    }
+        #region FSM
 
-    private void Update()
-    {
-        if (_health.IsDead())
-        {
-            enabled = false;
-            _navMeshAgent.enabled = false;
-            _isProvoked = false;
-        }
+        public StateMachine StateMachine { get; private set; }
+        public EnemyAIStates States { get; private set; }
+
+
+        #endregion
         
-        _distanceToTarget = Vector3.Distance(_target.position, transform.position);
+        [SerializeField] private Transform _target;
+        [SerializeField] private float _chaseRange = 5f;
+        [SerializeField] float _turnSpeed = 5f;
 
-        if (_isProvoked)
+        private bool _isProvoked;
+        private Health _health;
+
+        private NavMeshAgent _navMeshAgent;
+        private float _distanceToTarget = Mathf.Infinity;
+
+        private void Awake()
         {
-            EngageTarget();
+            #region FSM
+
+            States = new EnemyAIStates(this);
+            StateMachine = new StateMachine();
+
+            #endregion
+
         }
-        else if (_distanceToTarget <= _chaseRange)
+
+        private void Start()
+        {
+            StateMachine.Initialize(States.IdleState);
+            
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _health = GetComponent<Health>();
+        }
+
+        private void Update()
+        {
+            StateMachine.CurrentState.Execute();
+            
+            if (_health.IsDead())
+            {
+                enabled = false;
+                _navMeshAgent.enabled = false;
+                _isProvoked = false;
+            }
+        
+            _distanceToTarget = Vector3.Distance(_target.position, transform.position);
+
+            if (_isProvoked)
+            {
+                EngageTarget();
+            }
+            else if (_distanceToTarget <= _chaseRange)
+            {
+                _isProvoked = true;
+            }
+        }
+    
+        public void OnDamageTaken()
         {
             _isProvoked = true;
         }
-    }
-    
-    public void OnDamageTaken()
-    {
-        _isProvoked = true;
-    }
 
-    private void EngageTarget()
-    {
-        FaceTarget();
-
-        if (_distanceToTarget >= _navMeshAgent.stoppingDistance)
+        private void EngageTarget()
         {
-            ChaseTarget();
+            FaceTarget();
+
+            if (_distanceToTarget >= _navMeshAgent.stoppingDistance)
+            {
+                ChaseTarget();
+            }
+
+            if (_distanceToTarget <= _navMeshAgent.stoppingDistance)
+            {
+                AttackTarget();
+            }
         }
 
-        if (_distanceToTarget <= _navMeshAgent.stoppingDistance)
+        private void ChaseTarget()
         {
-            AttackTarget();
+            GetComponent<Animator>().SetBool("IsAttacking", false);
+            GetComponent<Animator>().SetTrigger("Move");
+            _navMeshAgent.SetDestination(_target.position);
         }
-    }
-
-    private void ChaseTarget()
-    {
-        GetComponent<Animator>().SetBool("IsAttacking", false);
-        GetComponent<Animator>().SetTrigger("Move");
-        _navMeshAgent.SetDestination(_target.position);
-    }
     
-    private void AttackTarget()
-    {
-        GetComponent<Animator>().SetBool("IsAttacking", true);
-    }
+        private void AttackTarget()
+        {
+            GetComponent<Animator>().SetBool("IsAttacking", true);
+        }
     
-    private void FaceTarget()
-    {
-        Vector3 direction = (_target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _turnSpeed);
-    }
+        private void FaceTarget()
+        {
+            Vector3 direction = (_target.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _turnSpeed);
+        }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _chaseRange);
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _chaseRange);
+        }
     }
 }
