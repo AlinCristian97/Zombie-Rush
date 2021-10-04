@@ -1,4 +1,5 @@
 ﻿using Enemy;
+using UnityEngine;
 
 namespace General.Patterns.FSM.EnemyFSM.States
 {
@@ -10,17 +11,30 @@ namespace General.Patterns.FSM.EnemyFSM.States
 
         public override void Enter()
         {
-            
+            Debug.Log("Enemy Attack State: Enter");
         }
 
         public override void Exit()
         {
-            
+            Debug.Log("Enemy Attack State: Exit");
         }
 
         public override void Execute()
         {
+            Debug.Log("Enemy Attack State: Execute");
+
+            EnemyAI.FaceTarget();
+
+            if (EnemyAI.AttackCooldownPassed())
+            {
+                EnemyAI.UpdateNextAttackTime();
+                EnemyAI.AttackTarget();
+            }
             
+            if (!EnemyAI.TargetInRange)
+            {
+                EnemyAI.StateMachine.ChangeState(EnemyAI.States.ChaseState);
+            }
         }
     }
 }

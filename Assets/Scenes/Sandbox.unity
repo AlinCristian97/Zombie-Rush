@@ -9778,6 +9778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie1
       objectReference: {fileID: 0}
+    - target: {fileID: 4667021409828294811, guid: 6ca2fc5e3d13a974981ff8ba4f88bb1c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5435897516598191816, guid: 6ca2fc5e3d13a974981ff8ba4f88bb1c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9824,6 +9828,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9026071997051548910, guid: 6ca2fc5e3d13a974981ff8ba4f88bb1c, type: 3}
       propertyPath: _target
+      value: 
+      objectReference: {fileID: 642254426}
+    - target: {fileID: 9026071997051548910, guid: 6ca2fc5e3d13a974981ff8ba4f88bb1c, type: 3}
+      propertyPath: _targetTransform
       value: 
       objectReference: {fileID: 642254426}
     m_RemovedComponents: []

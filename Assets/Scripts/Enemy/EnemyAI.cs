@@ -15,12 +15,26 @@ namespace Enemy
 
 
         #endregion
+
+        #region Components
+
+        public Animator Animator { get; private set; }
+
+        #endregion
         
-        [SerializeField] private Transform _target;
+        [SerializeField] private float _damage = 40f;
+        private Health _targetHealth;
+        
+        [SerializeField] protected float AttackCooldown = 0.5f;
+        private float _nextAttackTime;
+        
+        [SerializeField] private Transform _targetTransform;
         [SerializeField] private float _chaseRange = 5f;
         [SerializeField] float _turnSpeed = 5f;
 
-        private bool _isProvoked;
+        public bool IsProvoked { get; private set; }
+        public bool TargetRanTooFarAway => _distanceToTarget > _chaseRange;
+        
         private Health _health;
 
         private NavMeshAgent _navMeshAgent;
@@ -35,6 +49,7 @@ namespace Enemy
 
             #endregion
 
+            Animator = GetComponent<Animator>();
         }
 
         private void Start()
@@ -53,27 +68,38 @@ namespace Enemy
             {
                 enabled = false;
                 _navMeshAgent.enabled = false;
-                _isProvoked = false;
+                IsProvoked = false;
+                StateMachine.ChangeState(States.DeadState);
             }
         
-            _distanceToTarget = Vector3.Distance(_target.position, transform.position);
+            _distanceToTarget = Vector3.Distance(_targetTransform.position, transform.position);
 
-            if (_isProvoked)
+            if (_distanceToTarget <= _chaseRange)
             {
-                EngageTarget();
-            }
-            else if (_distanceToTarget <= _chaseRange)
-            {
-                _isProvoked = true;
+                IsProvoked = true;
             }
         }
+        
+        public void UpdateNextAttackTime()
+        {
+            _nextAttackTime = Time.time + AttackCooldown;
+        }
+
+        public bool AttackCooldownPassed() => Time.time > _nextAttackTime;
     
         public void OnDamageTaken()
         {
-            _isProvoked = true;
+            IsProvoked = true;
         }
 
-        private void EngageTarget()
+        public void ClearProvoked()
+        {
+            IsProvoked = false;
+        }
+
+        public bool TargetInRange => _distanceToTarget < _navMeshAgent.stoppingDistance;
+
+        public void EngageTarget()
         {
             FaceTarget();
 
@@ -88,21 +114,28 @@ namespace Enemy
             }
         }
 
-        private void ChaseTarget()
+        public void ChaseTarget()
         {
-            GetComponent<Animator>().SetBool("IsAttacking", false);
-            GetComponent<Animator>().SetTrigger("Move");
-            _navMeshAgent.SetDestination(_target.position);
+            _navMeshAgent.SetDestination(_targetTransform.position);
         }
     
-        private void AttackTarget()
+        public void AttackTarget()
         {
-            GetComponent<Animator>().SetBool("IsAttacking", true);
+            Animator.SetTrigger("Attack");
         }
-    
-        private void FaceTarget()
+
+        #region Animator Trigger Events
+
+        private void SetIdleState()
         {
-            Vector3 direction = (_target.position - transform.position).normalized;
+            StateMachine.ChangeState(States.IdleState);
+        }
+
+        #endregion
+    
+        public void FaceTarget()
+        {
+            Vector3 direction = (_targetTransform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _turnSpeed);
         }
