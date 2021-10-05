@@ -28,7 +28,7 @@ namespace General.Patterns.FSM.EnemyFSM.States
             if (EnemyAI.AttackCooldownPassed())
             {
                 EnemyAI.UpdateNextAttackTime();
-                EnemyAI.AttackTarget();
+                EnemyAI.TriggerAttackAnimation();
             }
             
             if (!EnemyAI.TargetInRange)

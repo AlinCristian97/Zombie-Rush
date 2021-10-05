@@ -1517,7 +1517,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -0.25
+  m_BaseOffset: -0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &9026071997051548910
@@ -1532,10 +1532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61e0bcfda034054b95243451336232f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 40
+  _target: {fileID: 0}
+  _damage: 10
   AttackCooldown: 0.5
   <ChaseSpeed>k__BackingField: 6
-  _targetTransform: {fileID: 0}
   _chaseRange: 10
   _turnSpeed: 5
   <PatrolSpeed>k__BackingField: 0.5

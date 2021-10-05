@@ -27,11 +27,12 @@ namespace Enemy
 
         #endregion
 
+        [SerializeField] private GameObject _target;
+
         #region Attack
 
         [SerializeField] private float _damage = 40f;
         private Health _targetHealth;
-        
         [SerializeField] protected float AttackCooldown = 0.5f;
         private float _nextAttackTime;
 
@@ -40,7 +41,7 @@ namespace Enemy
         #region Chase
 
         [field:SerializeField] public float ChaseSpeed { get; private set; }
-        [SerializeField] private Transform _targetTransform;
+        private Transform _targetTransform;
         [SerializeField] private float _chaseRange = 5f;
         [SerializeField] float _turnSpeed = 5f;
         public bool IsProvoked { get; private set; }
@@ -77,7 +78,10 @@ namespace Enemy
             _health = GetComponent<Health>();
 
             #endregion
-            
+
+            _targetTransform = _target.transform;
+            _targetHealth = _target.GetComponent<Health>();
+
         }
 
         private void OnEnable()
@@ -158,7 +162,7 @@ namespace Enemy
             NavMeshAgent.SetDestination(_targetTransform.position);
         }
     
-        public void AttackTarget()
+        public void TriggerAttackAnimation()
         {
             Animator.SetTrigger("Attack");
         }
@@ -168,6 +172,11 @@ namespace Enemy
         private void SetIdleState()
         {
             StateMachine.ChangeState(States.IdleState);
+        }
+
+        private void DealDamage()
+        {
+            _targetHealth.TakeDamage(_damage);
         }
 
         #endregion
