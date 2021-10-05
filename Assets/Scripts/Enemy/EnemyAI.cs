@@ -4,6 +4,7 @@ using General.Patterns.FSM;
 using General.Patterns.FSM.EnemyFSM;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Enemy
 {
@@ -21,25 +22,43 @@ namespace Enemy
 
         public Animator Animator { get; private set; }
         public Collider Collider { get; private set; }
+        public NavMeshAgent NavMeshAgent { get; private set; }
+        private Health _health;
 
         #endregion
-        
+
+        #region Attack
+
         [SerializeField] private float _damage = 40f;
         private Health _targetHealth;
         
         [SerializeField] protected float AttackCooldown = 0.5f;
         private float _nextAttackTime;
-        
+
+        #endregion
+
+        #region Chase
+
+        [field:SerializeField] public float ChaseSpeed { get; private set; }
         [SerializeField] private Transform _targetTransform;
         [SerializeField] private float _chaseRange = 5f;
         [SerializeField] float _turnSpeed = 5f;
-
         public bool IsProvoked { get; private set; }
-        
-        private Health _health;
-
-        public NavMeshAgent NavMeshAgent { get; private set; }
         private float _distanceToTarget = Mathf.Infinity;
+
+        #endregion
+
+        #region Patrol
+
+        [field:SerializeField] public float PatrolSpeed { get; private set; }
+        public Vector3 PatrolPointA { get; private set; }
+        public Vector3 PatrolPointB { get; private set; }
+        private const float WORLD_MIN_X = -130f;
+        private const float WORLD_MAX_X = 130f;
+        private const float WORLD_MIN_Z = -130f;
+        private const float WORLD_MAX_Z = 130f;
+
+        #endregion
 
         private void Awake()
         {
@@ -54,6 +73,7 @@ namespace Enemy
 
             Animator = GetComponent<Animator>();
             Collider = GetComponent<Collider>();
+            NavMeshAgent = GetComponent<NavMeshAgent>();
             _health = GetComponent<Health>();
 
             #endregion
@@ -74,7 +94,27 @@ namespace Enemy
         {
             StateMachine.Initialize(States.IdleState);
             
-            NavMeshAgent = GetComponent<NavMeshAgent>();
+            SetPatrolPoints();
+            Debug.Log(PatrolPointA);
+            Debug.Log(PatrolPointB);
+        }
+
+        private void SetPatrolPoints()
+        {
+            Vector3 position = transform.position;
+
+            while (PatrolPointA.x - PatrolPointB.x < 100f || PatrolPointA.z - PatrolPointB.z < 100f)
+            {
+                PatrolPointA = new Vector3(
+                    Random.Range(WORLD_MIN_X, WORLD_MAX_X),
+                    position.y,
+                    Random.Range(WORLD_MIN_Z, WORLD_MAX_Z));
+                
+                PatrolPointB = new Vector3(
+                    Random.Range(WORLD_MIN_X, WORLD_MAX_X),
+                    position.y,
+                    Random.Range(WORLD_MIN_Z, WORLD_MAX_Z));
+            }
         }
 
         private void Update()

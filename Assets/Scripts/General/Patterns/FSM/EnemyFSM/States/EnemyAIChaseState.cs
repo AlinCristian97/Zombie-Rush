@@ -12,6 +12,7 @@ namespace General.Patterns.FSM.EnemyFSM.States
         public override void Enter()
         {
             EnemyAI.Animator.SetBool("IsRunning", true);
+            EnemyAI.NavMeshAgent.speed = EnemyAI.ChaseSpeed;
             Debug.Log("Enemy Chase State: Enter");
         }
 

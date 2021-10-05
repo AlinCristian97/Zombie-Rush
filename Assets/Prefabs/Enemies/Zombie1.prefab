@@ -635,12 +635,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036633014235656126}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5435897516598191816}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &5484750184074983946
 SkinnedMeshRenderer:
@@ -1463,7 +1463,7 @@ GameObject:
   - component: {fileID: 296294542}
   m_Layer: 0
   m_Name: Zombie1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1479,8 +1479,8 @@ Transform:
   m_LocalPosition: {x: -3.01, y: 0, z: 2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4693390096951928365}
   - {fileID: 4667021409828294811}
+  - {fileID: 4693390096951928365}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1508,7 +1508,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1517,7 +1517,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.25
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &9026071997051548910
@@ -1532,9 +1532,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61e0bcfda034054b95243451336232f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _damage: 40
+  AttackCooldown: 0.5
+  <ChaseSpeed>k__BackingField: 6
+  _targetTransform: {fileID: 0}
   _chaseRange: 10
   _turnSpeed: 5
+  <PatrolSpeed>k__BackingField: 0.5
 --- !u!114 &-7418997081456744821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,7 +1564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4101ae0be2baab848b2f459723b791ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 40
 --- !u!95 &296294542
 Animator:
   serializedVersion: 3
@@ -1604,14 +1607,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4735807349508926770}
   m_LocalRotation: {x: 0.101867065, y: 0.17035916, z: 0.0034139724, w: 0.9800966}
-  m_LocalPosition: {x: -0.0029340305, y: 0.86719435, z: -0.02325854}
+  m_LocalPosition: {x: -0.0029335022, y: 0.9, z: -0.02325821}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1195308076509947599}
   - {fileID: 5879002151619816708}
   - {fileID: 8012563274526303459}
   m_Father: {fileID: 5435897516598191816}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -2.6601815, y: 1.9756663, z: -2.0959425}
 --- !u!1 &4764473229873193429
 GameObject:
