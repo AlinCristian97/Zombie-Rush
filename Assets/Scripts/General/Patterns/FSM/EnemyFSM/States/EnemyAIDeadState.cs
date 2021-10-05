@@ -11,6 +11,10 @@ namespace General.Patterns.FSM.EnemyFSM.States
 
         public override void Enter()
         {
+            EnemyAI.enabled = false;
+            EnemyAI.Collider.enabled = false;
+            EnemyAI.NavMeshAgent.enabled = false;
+            EnemyAI.ClearProvoked();
             EnemyAI.Animator.SetTrigger("Die");
             Debug.Log("Enemy Dead State: Enter");
         }

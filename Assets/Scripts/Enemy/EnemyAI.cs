@@ -1,4 +1,5 @@
 using System;
+using General;
 using General.Patterns.FSM;
 using General.Patterns.FSM.EnemyFSM;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Enemy
         #region Components
 
         public Animator Animator { get; private set; }
+        public Collider Collider { get; private set; }
 
         #endregion
         
@@ -33,11 +35,10 @@ namespace Enemy
         [SerializeField] float _turnSpeed = 5f;
 
         public bool IsProvoked { get; private set; }
-        public bool TargetRanTooFarAway => _distanceToTarget > _chaseRange;
         
         private Health _health;
 
-        private NavMeshAgent _navMeshAgent;
+        public NavMeshAgent NavMeshAgent { get; private set; }
         private float _distanceToTarget = Mathf.Infinity;
 
         private void Awake()
@@ -49,15 +50,31 @@ namespace Enemy
 
             #endregion
 
+            #region Components
+
             Animator = GetComponent<Animator>();
+            Collider = GetComponent<Collider>();
+            _health = GetComponent<Health>();
+
+            #endregion
+            
+        }
+
+        private void OnEnable()
+        {
+            _health.OnDamageTaken += OnDamageTaken;
+        }
+        
+        private void OnDisable()
+        {
+            _health.OnDamageTaken -= OnDamageTaken;
         }
 
         private void Start()
         {
             StateMachine.Initialize(States.IdleState);
             
-            _navMeshAgent = GetComponent<NavMeshAgent>();
-            _health = GetComponent<Health>();
+            NavMeshAgent = GetComponent<NavMeshAgent>();
         }
 
         private void Update()
@@ -66,9 +83,6 @@ namespace Enemy
             
             if (_health.IsDead())
             {
-                enabled = false;
-                _navMeshAgent.enabled = false;
-                IsProvoked = false;
                 StateMachine.ChangeState(States.DeadState);
             }
         
@@ -97,26 +111,11 @@ namespace Enemy
             IsProvoked = false;
         }
 
-        public bool TargetInRange => _distanceToTarget < _navMeshAgent.stoppingDistance;
-
-        public void EngageTarget()
-        {
-            FaceTarget();
-
-            if (_distanceToTarget >= _navMeshAgent.stoppingDistance)
-            {
-                ChaseTarget();
-            }
-
-            if (_distanceToTarget <= _navMeshAgent.stoppingDistance)
-            {
-                AttackTarget();
-            }
-        }
+        public bool TargetInRange => _distanceToTarget < NavMeshAgent.stoppingDistance;
 
         public void ChaseTarget()
         {
-            _navMeshAgent.SetDestination(_targetTransform.position);
+            NavMeshAgent.SetDestination(_targetTransform.position);
         }
     
         public void AttackTarget()

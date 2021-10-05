@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
-namespace Enemy
+namespace General
 {
     public class Health : MonoBehaviour
     {
+        public event Action OnDamageTaken;
+        
         [SerializeField] private float _health = 100f;
         private bool _isDead;
 
@@ -12,6 +15,10 @@ namespace Enemy
         public void TakeDamage(float damage)
         {
             _health -= damage;
+            if (_health > 0)
+            {
+                OnDamageTaken?.Invoke();
+            }
             if (_health <= 0)
             {
                 Die();

@@ -32,12 +32,6 @@ namespace General.Patterns.FSM.EnemyFSM.States
             {
                 EnemyAI.StateMachine.ChangeState(EnemyAI.States.AttackState);
             }
-            
-            if (EnemyAI.TargetRanTooFarAway)
-            {
-                EnemyAI.ClearProvoked();
-                EnemyAI.StateMachine.ChangeState(EnemyAI.States.PatrolState);
-            }
         }
     }
 }
