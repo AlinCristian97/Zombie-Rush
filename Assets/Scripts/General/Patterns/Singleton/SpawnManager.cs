@@ -36,6 +36,7 @@ namespace General.Patterns.Singleton
         [SerializeField] private Transform _enemiesHolder;
         [SerializeField] private List<EnemyAI> _zombie1List;
         [SerializeField] private List<EnemyAI> _zombie2List;
+        [SerializeField] private List<EnemyAI> _zombie3List;
 
         private void Start()
         {
@@ -46,6 +47,7 @@ namespace General.Patterns.Singleton
         {
             SpawnEnemiesFromList(_zombie1List);
             SpawnEnemiesFromList(_zombie2List);
+            SpawnEnemiesFromList(_zombie3List);
         }
 
         private void SpawnEnemiesFromList(List<EnemyAI> listOfEnemies)
