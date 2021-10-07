@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 10
   AttackCooldown: 0.5
-  <ChaseSpeed>k__BackingField: 4
+  <ChaseSpeed>k__BackingField: 6
   _chaseRange: 10
   _turnSpeed: 5
   <PatrolSpeed>k__BackingField: 0.5
