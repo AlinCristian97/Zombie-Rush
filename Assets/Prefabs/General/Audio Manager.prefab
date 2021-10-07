@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3470654578022027133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3470654578022027134}
+  - component: {fileID: 3470654578022027135}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3470654578022027134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470654578022027133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3470654578022027135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470654578022027133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d56336c6cb454a8913336c2894d5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Mixer>k__BackingField: {fileID: 24100000, guid: c0e9f6296b0f55741a4f549c9bb87165, type: 2}
+  <MusicGroup>k__BackingField: {fileID: -5634543476568615039, guid: c0e9f6296b0f55741a4f549c9bb87165, type: 2}
+  <UIGroup>k__BackingField: {fileID: 1460423775484881497, guid: c0e9f6296b0f55741a4f549c9bb87165, type: 2}
+  <SoundEffectsGroup>k__BackingField: {fileID: -7071618063722657564, guid: c0e9f6296b0f55741a4f549c9bb87165, type: 2}
+  <DefaultVolume>k__BackingField: 0.2
+  <Music>k__BackingField:
+  - <Name>k__BackingField: BackgroundMusic
+    <Clip>k__BackingField: {fileID: 8300000, guid: e4fabafed9d8cfc429cd98ca5a5b1223, type: 3}
+    <Volume>k__BackingField: 0.5
+    <Pitch>k__BackingField: 1
+    <Loop>k__BackingField: 1
+  <UI>k__BackingField: []
+  <Miscellaneous>k__BackingField: []
