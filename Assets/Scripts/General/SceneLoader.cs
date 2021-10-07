@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Audio;
 using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -83,9 +84,9 @@ namespace General
             }
             else
             {
-                // yield return StartCoroutine(AudioManager.Instance.StartFade(0.0001f, 0.0001f));
+                yield return StartCoroutine(AudioManager.Instance.StartFade(0.0001f, 0.0001f));
             
-                // StartCoroutine(AudioManager.Instance.StartFade(_fadeDuration, 1f));
+                StartCoroutine(AudioManager.Instance.StartFade(_fadeDuration, 1f));
 
                 yield return new WaitForSeconds(_timeBeforeStart);
                 _transition.SetTrigger("End"); 
@@ -136,7 +137,7 @@ namespace General
         {
             _transition.SetTrigger("Start");
 
-            // StartCoroutine(AudioManager.Instance.StartFade(_fadeDuration, 0.0001f));
+            StartCoroutine(AudioManager.Instance.StartFade(_fadeDuration, 0.0001f));
             yield return new WaitForSeconds(_timeAfterEnd);
 
             SceneManager.LoadScene(sceneIndex);
@@ -146,7 +147,7 @@ namespace General
         {
             _transition.SetTrigger("Start");
 
-            // StartCoroutine(AudioManager.Instance.StartFade(_fadeDuration, 0.0001f));
+            StartCoroutine(AudioManager.Instance.StartFade(_fadeDuration, 0.0001f));
             yield return new WaitForSeconds(_timeAfterEnd);
 
             SceneManager.LoadScene(sceneName);
@@ -156,7 +157,7 @@ namespace General
         {
             _transition.SetTrigger("Start");
 
-            // StartCoroutine(AudioManager.Instance.StartFade(_fadeDuration, 0.0001f));
+            StartCoroutine(AudioManager.Instance.StartFade(_fadeDuration, 0.0001f));
             yield return new WaitForSeconds(_timeAfterEnd);
 
             Application.Quit();
