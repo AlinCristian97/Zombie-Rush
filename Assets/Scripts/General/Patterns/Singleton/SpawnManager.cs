@@ -35,6 +35,7 @@ namespace General.Patterns.Singleton
         [Header("Enemies")] 
         [SerializeField] private Transform _enemiesHolder;
         [SerializeField] private List<EnemyAI> _zombie1List;
+        [SerializeField] private List<EnemyAI> _zombie2List;
 
         private void Start()
         {
@@ -44,6 +45,7 @@ namespace General.Patterns.Singleton
         private void SpawnAllEnemies()
         {
             SpawnEnemiesFromList(_zombie1List);
+            SpawnEnemiesFromList(_zombie2List);
         }
 
         private void SpawnEnemiesFromList(List<EnemyAI> listOfEnemies)
@@ -52,12 +54,26 @@ namespace General.Patterns.Singleton
             {
                 EnemyAI instantiatedEnemy = Instantiate(enemy, _enemiesHolder);
 
-                float minOffset = 0f;
-                float maxOffset = 0f;
-                var position = new Vector3(
-                    Random.Range(SPAWN_MIN_X, SPAWN_MAX_X),
-                    transform.position.y,
-                    Random.Range(SPAWN_MIN_Z, SPAWN_MAX_Z));
+                Vector3 position;
+                const float minOffset = 0f;
+                const float maxOffset = 20f;
+
+                int randomNumber = Random.Range(0, 101);
+                if (randomNumber < 50)
+                {
+                    position = new Vector3(
+                        Random.Range(SPAWN_MIN_X, 0f),
+                        transform.position.y,
+                        Random.Range(SPAWN_MIN_Z, 0f));
+                }
+                else
+                {
+                    position = new Vector3(
+                        Random.Range(0f, SPAWN_MAX_X),
+                        transform.position.y,
+                        Random.Range(0f, SPAWN_MAX_Z));
+                }
+
                 position += new Vector3(
                     Random.Range(minOffset, maxOffset),
                     0f,
