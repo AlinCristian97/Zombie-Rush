@@ -49,11 +49,13 @@ namespace General
         private void OnEnable()
         {
             PlayerEvents.OnPlayerDied += LoadLoseScene;
+            PlayerEvents.OnPlayerCompletedMission += LoadWinScreen;
         }
 
         private void OnDisable()
         {
             PlayerEvents.OnPlayerDied -= LoadLoseScene;
+            PlayerEvents.OnPlayerCompletedMission -= LoadWinScreen;
         }
 
         public void LoadGameScene()
@@ -87,6 +89,17 @@ namespace General
 
                 yield return new WaitForSeconds(_timeBeforeStart);
                 _transition.SetTrigger("End"); 
+            }
+        }
+
+        private void Update()
+        {
+            _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            if (_currentSceneIndex == 3)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
 

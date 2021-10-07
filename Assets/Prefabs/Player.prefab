@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 2180143268612279630}
   - component: {fileID: 7937867685297470304}
   - component: {fileID: 1817527971959475763}
+  - component: {fileID: 8344158173471524352}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -252,7 +253,7 @@ MonoBehaviour:
     ForwardSpeed: 8
     BackwardSpeed: 4
     StrafeSpeed: 4
-    RunMultiplier: 20
+    RunMultiplier: 2
     RunKey: 304
     JumpForce: 50
     SlopeCurveModifier:
@@ -345,6 +346,18 @@ MonoBehaviour:
   _startBulletsAmount: 40
   _maxShellsAmount: 100
   _startShellsAmount: 15
+--- !u!114 &8344158173471524352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd5cbb017ab79f4e815c198643843f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &8748612368707190319
 Animator:
   serializedVersion: 3

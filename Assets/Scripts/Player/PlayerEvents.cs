@@ -8,6 +8,9 @@ namespace Player
     {
         public static event Action OnReloadButtonPressed;
         public static event Action OnPlayerDied;
+        public static event Action OnPlayerCompletedMission;
+
+        private static int _killCount;
 
         private Health _health;
 
@@ -20,6 +23,7 @@ namespace Player
         {
             HandleReloadButtonPressed();
             HandlePlayerDied();
+            HandlePlayerCompletedMission();
         }
 
         private void HandleReloadButtonPressed()
@@ -36,6 +40,20 @@ namespace Player
             {
                 OnPlayerDied?.Invoke();
             }
+        }
+
+        private void HandlePlayerCompletedMission()
+        {
+            if (_killCount >= 2)
+            {
+                OnPlayerCompletedMission?.Invoke();
+            }
+        }
+
+        public static void IncrementKillCount()
+        {
+            _killCount++;
+            Debug.Log("Killcount: " + _killCount);
         }
     }
 }

@@ -6,6 +6,7 @@ namespace General
     public class Health : MonoBehaviour
     {
         public event Action OnDamageTaken;
+        public event Action OnDied;
         
         [SerializeField] private float _health = 100f;
         private bool _isDead;
@@ -22,6 +23,7 @@ namespace General
             if (_health <= 0)
             {
                 Die();
+                OnDied?.Invoke();
             }
         }
     

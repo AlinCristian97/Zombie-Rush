@@ -2,6 +2,7 @@ using System;
 using General;
 using General.Patterns.FSM;
 using General.Patterns.FSM.EnemyFSM;
+using Player;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -89,11 +90,13 @@ namespace Enemy
         private void OnEnable()
         {
             _health.OnDamageTaken += OnDamageTaken;
+            _health.OnDied += IncrementPlayerKillCount;
         }
         
         private void OnDisable()
         {
             _health.OnDamageTaken -= OnDamageTaken;
+            _health.OnDied += IncrementPlayerKillCount;
         }
 
         private void Start()
@@ -103,6 +106,11 @@ namespace Enemy
             SetPatrolPoints();
             Debug.Log(PatrolPointA);
             Debug.Log(PatrolPointB);
+        }
+
+        private void IncrementPlayerKillCount()
+        {
+            PlayerEvents.IncrementKillCount();
         }
 
         private void SetPatrolPoints()
