@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +8,25 @@ namespace General
 {
     public class SceneLoader : MonoBehaviour
     {
+        #region Singleton
+
+        private static SceneLoader _instance;
+        
+        public static SceneLoader Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<SceneLoader>();
+                }
+                
+                return _instance;
+            }
+        }
+
+        #endregion
+
         [SerializeField] private float _waitingTime;
         private int _currentSceneIndex;
 
@@ -24,10 +45,30 @@ namespace General
                 _transition = GetComponentInChildren<Animator>();
             }
         }
-        
+
+        private void OnEnable()
+        {
+            PlayerEvents.OnPlayerDied += LoadLoseScene;
+        }
+
+        private void OnDisable()
+        {
+            PlayerEvents.OnPlayerDied -= LoadLoseScene;
+        }
+
         public void LoadGameScene()
         {
             StartCoroutine(LoadScene("Sandbox"));
+        }
+        
+        public void LoadLoseScene()
+        {
+            StartCoroutine(LoadScene("LoseScene"));
+        }
+        
+        public void LoadWinScreen()
+        {
+            StartCoroutine(LoadScene("WinScreen"));
         }
 
         private IEnumerator Start()
