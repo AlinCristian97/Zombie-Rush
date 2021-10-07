@@ -24,6 +24,11 @@ namespace General
                 _transition = GetComponentInChildren<Animator>();
             }
         }
+        
+        public void LoadGameScene()
+        {
+            StartCoroutine(LoadScene("Sandbox"));
+        }
 
         private IEnumerator Start()
         {
