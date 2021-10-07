@@ -4,6 +4,7 @@ using General.Patterns.FSM;
 using General.Patterns.FSM.EnemyFSM;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.FirstPerson;
 using Random = UnityEngine.Random;
 
 namespace Enemy
@@ -27,7 +28,7 @@ namespace Enemy
 
         #endregion
 
-        [SerializeField] private GameObject _target;
+        private GameObject _target;
 
         #region Attack
 
@@ -79,6 +80,7 @@ namespace Enemy
 
             #endregion
 
+            _target = FindObjectOfType<RigidbodyFirstPersonController>().gameObject; //TODO: Find a better way of getting the Player
             _targetTransform = _target.transform;
             _targetHealth = _target.GetComponent<Health>();
 
