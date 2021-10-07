@@ -11,17 +11,17 @@ namespace General.Patterns.FSM.EnemyFSM.States
 
         public override void Enter()
         {
-            Debug.Log("Enemy Attack State: Enter");
+            // Debug.Log("Enemy Attack State: Enter");
         }
 
         public override void Exit()
         {
-            Debug.Log("Enemy Attack State: Exit");
+            // Debug.Log("Enemy Attack State: Exit");
         }
 
         public override void Execute()
         {
-            Debug.Log("Enemy Attack State: Execute");
+            // Debug.Log("Enemy Attack State: Execute");
 
             EnemyAI.FaceTarget();
 

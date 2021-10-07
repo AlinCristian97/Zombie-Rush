@@ -16,17 +16,17 @@ namespace General.Patterns.FSM.EnemyFSM.States
             EnemyAI.NavMeshAgent.enabled = false;
             EnemyAI.ClearProvoked();
             EnemyAI.Animator.SetTrigger("Die");
-            Debug.Log("Enemy Dead State: Enter");
+            // Debug.Log("Enemy Dead State: Enter");
         }
 
         public override void Exit()
         {
-            Debug.Log("Enemy Dead State: Exit");
+            // Debug.Log("Enemy Dead State: Exit");
         }
 
         public override void Execute()
         {
-            Debug.Log("Enemy Dead State: Execute");
+            // Debug.Log("Enemy Dead State: Execute");
         }
     }
 }

@@ -13,18 +13,18 @@ namespace General.Patterns.FSM.EnemyFSM.States
         {
             EnemyAI.Animator.SetBool("IsRunning", true);
             EnemyAI.NavMeshAgent.speed = EnemyAI.ChaseSpeed;
-            Debug.Log("Enemy Chase State: Enter");
+            // Debug.Log("Enemy Chase State: Enter");
         }
 
         public override void Exit()
         {
             EnemyAI.Animator.SetBool("IsRunning", false);
-            Debug.Log("Enemy Chase State: Exit");
+            // Debug.Log("Enemy Chase State: Exit");
         }
 
         public override void Execute()
         {
-            Debug.Log("Enemy Chase State: Execute");
+            // Debug.Log("Enemy Chase State: Execute");
 
             EnemyAI.FaceTarget();
             EnemyAI.ChaseTarget();

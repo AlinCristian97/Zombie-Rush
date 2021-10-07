@@ -15,18 +15,18 @@ namespace General.Patterns.FSM.EnemyFSM.States
             EnemyAI.NavMeshAgent.SetDestination(EnemyAI.PatrolPointA);
             EnemyAI.NavMeshAgent.speed = EnemyAI.PatrolSpeed;
             
-            Debug.Log("Enemy Patrol State: Enter");
+            // Debug.Log("Enemy Patrol State: Enter");
         }
 
         public override void Exit()
         {
             EnemyAI.Animator.SetBool("IsWalking", false);
-            Debug.Log("Enemy Patrol State: Exit");
+            // Debug.Log("Enemy Patrol State: Exit");
         }
 
         public override void Execute()
         {
-            Debug.Log("Enemy Patrol State: Execute");
+            // Debug.Log("Enemy Patrol State: Execute");
             
             if (Mathf.Abs(EnemyAI.transform.position.x - EnemyAI.PatrolPointA.x) < 10f ||
                 Mathf.Abs(EnemyAI.transform.position.z - EnemyAI.PatrolPointA.z) < 10f)

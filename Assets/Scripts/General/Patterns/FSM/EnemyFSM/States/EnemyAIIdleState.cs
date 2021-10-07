@@ -12,18 +12,18 @@ namespace General.Patterns.FSM.EnemyFSM.States
         public override void Enter()
         {
             EnemyAI.Animator.SetBool("IsIdling", true);
-            Debug.Log("Enemy Idle State: Enter");
+            // Debug.Log("Enemy Idle State: Enter");
         }
 
         public override void Exit()
         {
             EnemyAI.Animator.SetBool("IsIdling", false);
-            Debug.Log("Enemy Idle State: Exit");
+            // Debug.Log("Enemy Idle State: Exit");
         }
 
         public override void Execute()
         {
-            Debug.Log("Enemy Idle State: Execute");
+            // Debug.Log("Enemy Idle State: Execute");
             
             if (EnemyAI.IsProvoked && !EnemyAI.TargetInRange)
             {
