@@ -54,5 +54,10 @@ MonoBehaviour:
     <Volume>k__BackingField: 0.5
     <Pitch>k__BackingField: 1
     <Loop>k__BackingField: 1
-  <UI>k__BackingField: []
+  <UI>k__BackingField:
+  - <Name>k__BackingField: ButtonClick
+    <Clip>k__BackingField: {fileID: 8300000, guid: 79bdcf44c201e6741916927b968a9870, type: 3}
+    <Volume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+    <Loop>k__BackingField: 0
   <Miscellaneous>k__BackingField: []

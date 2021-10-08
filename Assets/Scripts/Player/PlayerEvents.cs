@@ -10,6 +10,7 @@ namespace Player
         public static event Action OnPlayerDied;
         public static event Action OnPlayerCompletedMission;
 
+        //TODO: Find a better way
         private static int _killCount;
 
         private Health _health;
@@ -54,6 +55,11 @@ namespace Player
         {
             _killCount++;
             Debug.Log("Killcount: " + _killCount);
+        }
+
+        public static void ResetKillCount()
+        {
+            _killCount = 0;
         }
     }
 }

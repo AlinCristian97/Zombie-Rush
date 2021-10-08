@@ -61,6 +61,8 @@ namespace General
 
         public void LoadGameScene()
         {
+            //TODO: Find a way to not need the resetkillcount
+            PlayerEvents.ResetKillCount();
             StartCoroutine(LoadScene("Sandbox"));
         }
         
@@ -97,7 +99,8 @@ namespace General
         {
             _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            if (_currentSceneIndex == 3)
+            //TODO: Find a better way
+            if (_currentSceneIndex == 3 || _currentSceneIndex == 4)
             {
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;

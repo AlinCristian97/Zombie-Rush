@@ -652,5 +652,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470654578022027135, guid: 146d047c5436ba94c97ad27d5571e42c, type: 3}
+      propertyPath: <Music>k__BackingField.Array.data[0].<Volume>k__BackingField
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 146d047c5436ba94c97ad27d5571e42c, type: 3}
